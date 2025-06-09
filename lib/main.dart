@@ -17,6 +17,8 @@ import 'package:flutter_tutorials/flutter_examples/listview_problem/listviewprob
 import 'package:flutter_tutorials/flutter_examples/longer_list_example/longer_list_example.dart';
 import 'package:flutter_tutorials/flutter_examples/over_lay_portal_example/overlayportalexample.dart';
 import 'package:flutter_tutorials/flutter_examples/padding_examples/padtext_example.dart';
+import 'package:flutter_tutorials/flutter_examples/paralax_effect_example/flow_example_flutter.dart';
+import 'package:flutter_tutorials/flutter_examples/paralax_effect_example/paralax_effect_example.dart';
 import 'package:flutter_tutorials/flutter_examples/row_column_spacing_example/rcol_example.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/expanded_expample.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_alignment.dart';
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:   AppBarApp());
+      home:   ExampleParallax());
   }
 }
 
