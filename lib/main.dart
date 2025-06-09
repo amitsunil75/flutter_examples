@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorials/flutter_examples/counter_problem/counter_example.dart';
+import 'package:flutter_tutorials/flutter_examples/custom_scroll_view_examplle/custom_scroll_fluuter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/elevated_button/elevated_button_flutter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/flexible_example/flexible_widget_example.dart';
 import 'package:flutter_tutorials/flutter_examples/grid_view_example_list/grid_view_list_example.dart';
@@ -21,6 +22,8 @@ import 'package:flutter_tutorials/flutter_examples/rows_alignment/expanded_expam
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_alignment.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_column.dart';
 import 'package:flutter_tutorials/flutter_examples/scrollbar_example/scrollbar_exmple.dart';
+import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/silver_list_fixed_example.dart';
+import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/silver_list_flutter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/spaced_item_list_problem/spaced_item_list.dart';
 import 'package:flutter_tutorials/flutter_examples/stack_problem_example/stack_problem_example.dart';
 
@@ -36,10 +39,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter tutorial',
-      theme: ThemeData(
-     
-      ),
-      home:   ListWheelScrollviewExample());
+      theme:ThemeData.dark(),
+      home:   SilverListFixedExample());
   }
 }
 
