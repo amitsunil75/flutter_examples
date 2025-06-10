@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example2.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example3.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_exp1.dart';
+import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/larger_screen_navigation_rail.dart';
 import 'package:flutter_tutorials/flutter_examples/counter_problem/counter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/custom_scroll_view_examplle/custom_scroll_fluuter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/elevated_button/elevated_button_flutter_example.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:   BottomNavigationBarExample3());
+      home:   LargerScreenNavigationRail());
   }
 }
 
