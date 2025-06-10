@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example2.dart';
+import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example3.dart';
+import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_exp1.dart';
 import 'package:flutter_tutorials/flutter_examples/counter_problem/counter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/custom_scroll_view_examplle/custom_scroll_fluuter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/elevated_button/elevated_button_flutter_example.dart';
@@ -19,6 +22,8 @@ import 'package:flutter_tutorials/flutter_examples/over_lay_portal_example/overl
 import 'package:flutter_tutorials/flutter_examples/padding_examples/padtext_example.dart';
 import 'package:flutter_tutorials/flutter_examples/paralax_effect_example/flow_example_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/paralax_effect_example/paralax_effect_example.dart';
+import 'package:flutter_tutorials/flutter_examples/responsive_ui_example/keyboard_reesponsiveness_flutter.dart';
+import 'package:flutter_tutorials/flutter_examples/responsive_ui_example/responsive_ui_example1.dart';
 import 'package:flutter_tutorials/flutter_examples/row_column_spacing_example/rcol_example.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/expanded_expample.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_alignment.dart';
@@ -46,7 +51,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:   ExampleParallax());
+      home:   BottomNavigationBarExample3());
   }
 }
 
