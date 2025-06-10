@@ -37,3 +37,20 @@ class _SliverGridExampleFlutterState extends State<SliverGridExampleFlutter> {
     );
   }
 }
+
+
+// ### 🧩 `SliverGrid.count` vs `SliverGrid.extent` vs `SliverGrid.builder` — Key Differences
+
+// | Widget               | Key Use                                | Columns / Width Defined By  |
+// | -------------------- | -------------------------------------- | --------------------------- |
+// | `SliverGrid.count`   | Fixed number of columns                | `crossAxisCount`            |
+// | `SliverGrid.extent`  | Max width per item (auto column count) | `maxCrossAxisExtent`        |
+// | `SliverGrid.builder` | Lazily builds items for performance    | Use with count/extent logic |
+
+// **In short**:
+
+// * `count`: Use when you know how many columns you want.
+// * `extent`: Use when you know how wide each item should be.
+// * `builder`: Use for large or dynamic item lists.
+
+// Let me know if you want a visual or responsive grid example!

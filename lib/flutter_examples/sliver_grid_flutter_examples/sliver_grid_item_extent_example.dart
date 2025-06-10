@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SliverGridCountExample extends StatefulWidget {
-  const SliverGridCountExample({super.key});
+class SliverGridItemExtentExample extends StatefulWidget {
+  const SliverGridItemExtentExample({super.key});
 
   @override
-  State<SliverGridCountExample> createState() =>
-      _SliverGridCountExampleState();
+  State<SliverGridItemExtentExample> createState() =>
+      _SliverGridItemExtentExampleState();
 }
 
-class _SliverGridCountExampleState extends State<SliverGridCountExample> {
+class _SliverGridItemExtentExampleState extends State<SliverGridItemExtentExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +17,8 @@ class _SliverGridCountExampleState extends State<SliverGridCountExample> {
         slivers: [
           SliverPadding(
             padding: const EdgeInsets.all(16.0), // outer padding
-            sliver: SliverGrid.count(
-              crossAxisCount: 3, // Better spacing with 3 columns
+            sliver: SliverGrid.extent(
+              maxCrossAxisExtent: 3, // Better spacing with 3 columns
               crossAxisSpacing: 16.0,
               mainAxisSpacing: 16.0,
               children: List.generate(
