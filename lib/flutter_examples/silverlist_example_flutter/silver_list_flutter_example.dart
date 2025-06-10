@@ -1,67 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-// class SilverListFlutterExample extends StatefulWidget {
-//   const SilverListFlutterExample({super.key});
+class SilverListFlutterExample extends StatefulWidget {
+  const SilverListFlutterExample({super.key});
 
-//   @override
-//   State<SilverListFlutterExample> createState() =>
-//       _SilverListFlutterExampleState();
-// }
+  @override
+  State<SilverListFlutterExample> createState() =>
+      _SilverListFlutterExampleState();
+}
 
-// class _SilverListFlutterExampleState extends State<SilverListFlutterExample> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(backgroundColor: Colors.green,title: Center(child: Text('Horizon',style: TextStyle(color: Colors.white),),),),
-//       body: ListView.builder(
-//         itemCount: 10,
-//         itemBuilder: (context, index) {
-//           return SingleChildScrollView(child: Column(children: [
-//             // Text(
-//             //   'Day ${index + 1}',
-//             //   style: TextStyle(fontWeight: FontWeight.bold),
-//             // ),
-//             WeatherDetailsWidget(
-//               currentDate: DateTime.now().add(Duration(days: index)),
-//               weekDay: DateTime.now().add(Duration(days: index)),
-//               highTemperature: 15.0 + index,
-//               lowTemperature: 10.0 + index,
-//             ),
-//             Divider(),
+class _SilverListFlutterExampleState extends State<SilverListFlutterExample> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.green,title: Center(child: Text('Horizon',style: TextStyle(color: Colors.white),),),),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return SingleChildScrollView(child: Column(children: [
+            // Text(
+            //   'Day ${index + 1}',
+            //   style: TextStyle(fontWeight: FontWeight.bold),
+            // ),
+            WeatherDetailsWidgeted(
+              currentDate: DateTime.now().add(Duration(days: index)),
+              weekDay: DateTime.now().add(Duration(days: index)),
+              highTemperature: 15.0 + index,
+              lowTemperature: 10.0 + index,
+            ),
+            Divider(),
 
-//           ],));
-//         },
-//       ),
-//     );
-//   }
-// }
+          ],));
+        },
+      ),
+    );
+  }
+}
 
-// class WeatherDetailsWidget extends StatelessWidget {
-//   final DateTime currentDate;
-//   final DateTime weekDay;
-//   final double highTemperature;
-//   final double lowTemperature;
-//   const WeatherDetailsWidget({
-//     super.key,
-//     required this.currentDate,
-//     required this.weekDay,
-//     required this.highTemperature,
-//     required this.lowTemperature,
+class WeatherDetailsWidgeted extends StatelessWidget {
+  final DateTime currentDate;
+  final DateTime weekDay;
+  final double highTemperature;
+  final double lowTemperature;
+  const WeatherDetailsWidgeted({
+    super.key,
+    required this.currentDate,
+    required this.weekDay,
+    required this.highTemperature,
+    required this.lowTemperature,
 
-//   });
+  });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       child: ListTile(
-//         leading: Text(currentDate.day.toString()),
-//         title: Text(DateFormat('EEEE').format(weekDay)),
-//         trailing: Text('${highTemperature.toString()}°C|${lowTemperature.toString()}°C'),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Text(currentDate.day.toString()),
+        title: Text(DateFormat('EEEE').format(weekDay)),
+        trailing: Text('${highTemperature.toString()}°C|${lowTemperature.toString()}°C'),
+      ),
+    );
+  }
+}
 
 
 
