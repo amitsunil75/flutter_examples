@@ -18,10 +18,7 @@ class _SilverListFlutterExampleState extends State<SilverListFlutterExample> {
         itemCount: 10,
         itemBuilder: (context, index) {
           return SingleChildScrollView(child: Column(children: [
-            // Text(
-            //   'Day ${index + 1}',
-            //   style: TextStyle(fontWeight: FontWeight.bold),
-            // ),
+            
             WeatherDetailsWidgeted(
               currentDate: DateTime.now().add(Duration(days: index)),
               weekDay: DateTime.now().add(Duration(days: index)),
