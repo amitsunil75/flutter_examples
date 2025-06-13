@@ -51,6 +51,7 @@ import 'package:flutter_tutorials/flutter_examples/rows_alignment/expanded_expam
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_alignment.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_column.dart';
 import 'package:flutter_tutorials/flutter_examples/scrollbar_example/scrollbar_exmple.dart';
+import 'package:flutter_tutorials/flutter_examples/search_bar_flutter_example/search_bar_example.dart';
 import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/silver_list_fixed_example.dart';
 import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/silver_list_flutter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/sliver_protype_list.dart';
@@ -80,6 +81,6 @@ class MyApp extends StatelessWidget {
      MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:     DropdownMenuExample());
+      home:     SearchBarExample());
   }
 }
