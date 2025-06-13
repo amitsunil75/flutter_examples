@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorials/flutter_examples/alert_dialogue_examples/alert_dialgue_with_animation.dart';
 import 'package:flutter_tutorials/flutter_examples/alert_dialogue_examples/alert_dialogue_example.dart';
+import 'package:flutter_tutorials/flutter_examples/app_bar_tab_example_flutter/app_bar_tabs_exmaple_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/avoid_web_browser_example/avoid_web_browser_example.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example2.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example3.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_exp1.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/larger_screen_navigation_rail.dart';
+import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/menu_button_flutter.dart';
+import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/segmented_button.dart';
+import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/toogle_button_exmaple_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/checkbox_radio_butoon_example/checkbox_radio_button_example.dart';
 import 'package:flutter_tutorials/flutter_examples/checkbox_radio_butoon_example/multiple_radio%20button_example.dart';
 import 'package:flutter_tutorials/flutter_examples/checkbox_radio_butoon_example/mutiple_checkbox_real_case.dart';
@@ -74,6 +78,6 @@ class MyApp extends StatelessWidget {
      MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:     Sliverappnewflutterexample());
+      home:     MyMenuBar(message: 'hi',));
   }
 }
