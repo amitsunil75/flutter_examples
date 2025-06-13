@@ -52,6 +52,7 @@ import 'package:flutter_tutorials/flutter_examples/slider_example_flutter/progre
 import 'package:flutter_tutorials/flutter_examples/slider_example_flutter/slider_exqample_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/sliver_app_bar_example/float_pinned_snap_sliverAppbar_example.dart';
 import 'package:flutter_tutorials/flutter_examples/sliver_app_bar_example/sliver_app_bar_examples.dart';
+import 'package:flutter_tutorials/flutter_examples/sliver_app_bar_flutter_example/sliver_app_bar_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/sliver_grid_flutter_examples/sliver_grid_builder_example.dart';
 import 'package:flutter_tutorials/flutter_examples/sliver_grid_flutter_examples/sliver_grid_count_example.dart';
 import 'package:flutter_tutorials/flutter_examples/sliver_grid_flutter_examples/sliver_grid_example_flutter.dart';
@@ -73,6 +74,6 @@ class MyApp extends StatelessWidget {
      MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:     DrwarerNaviagtionExampleFlutter());
+      home:     Sliverappnewflutterexample());
   }
 }
