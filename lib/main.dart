@@ -7,7 +7,10 @@ import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_example3.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/bottom_navigation_bar_exp1.dart';
 import 'package:flutter_tutorials/flutter_examples/bottom_navigation_bar_example/larger_screen_navigation_rail.dart';
+import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/chips_fullter_real_example.dart';
 import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/drop_menu_example.dart';
+import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/filled_button_demo.dart';
+import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/full_screen_dialgue_button.dart';
 import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/menu_achor_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/menu_button_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/buttons_flutter_exmaple.dart/segmented_button.dart';
@@ -51,6 +54,8 @@ import 'package:flutter_tutorials/flutter_examples/rows_alignment/expanded_expam
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_alignment.dart';
 import 'package:flutter_tutorials/flutter_examples/rows_alignment/row_column.dart';
 import 'package:flutter_tutorials/flutter_examples/scrollbar_example/scrollbar_exmple.dart';
+import 'package:flutter_tutorials/flutter_examples/search_bar_flutter_example/async_search_anchor.dart';
+import 'package:flutter_tutorials/flutter_examples/search_bar_flutter_example/pinned_search_bar_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/search_bar_flutter_example/search_bar_example.dart';
 import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/silver_list_fixed_example.dart';
 import 'package:flutter_tutorials/flutter_examples/silverlist_example_flutter/silver_list_flutter_example.dart';
@@ -81,6 +86,6 @@ class MyApp extends StatelessWidget {
      MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:     SearchBarExample());
+      home:     FilledButtonDemo());
   }
 }
