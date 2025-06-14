@@ -26,6 +26,9 @@ import 'package:flutter_tutorials/flutter_examples/drawer_example_flutter.dart/d
 import 'package:flutter_tutorials/flutter_examples/drawer_example_flutter.dart/navigation_animated.dart';
 import 'package:flutter_tutorials/flutter_examples/elevated_button/elevated_button_flutter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/flexible_example/flexible_widget_example.dart';
+import 'package:flutter_tutorials/flutter_examples/gesture_detector_flutter_example/gesture_detector_example.dart';
+import 'package:flutter_tutorials/flutter_examples/gesture_detector_flutter_example/gesture_detector_mutliple_ecample.dart';
+import 'package:flutter_tutorials/flutter_examples/gesture_detector_flutter_example/gesture_detector_snackbar_example.dart';
 import 'package:flutter_tutorials/flutter_examples/glowing_overscroll_example/glowing_overscroll_example.dart';
 import 'package:flutter_tutorials/flutter_examples/grid_view_example_list/grid_view_list_example.dart';
 import 'package:flutter_tutorials/flutter_examples/horizontal_list_view_example/horizontal_list_view.dart';
@@ -86,6 +89,6 @@ class MyApp extends StatelessWidget {
      MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:     FilledButtonDemo());
+      home:     GestureDetectorSnackbarExample());
   }
 }
