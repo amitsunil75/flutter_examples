@@ -20,6 +20,9 @@ import 'package:flutter_tutorials/flutter_examples/checkbox_radio_butoon_example
 import 'package:flutter_tutorials/flutter_examples/checkbox_radio_butoon_example/mutiple_checkbox_real_case.dart';
 import 'package:flutter_tutorials/flutter_examples/counter_problem/counter_example.dart';
 import 'package:flutter_tutorials/flutter_examples/custom_scroll_view_examplle/custom_scroll_fluuter_example.dart';
+import 'package:flutter_tutorials/flutter_examples/draggable_flutter_example/draggable_example2_flutter.dart';
+import 'package:flutter_tutorials/flutter_examples/draggable_flutter_example/draggable_flutter_exmaple.dart';
+import 'package:flutter_tutorials/flutter_examples/draggable_flutter_example/love_match_fluuer.dart';
 import 'package:flutter_tutorials/flutter_examples/drawer_example_flutter.dart/drawer_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/drawer_example_flutter.dart/drawer_navigation_flutter.dart';
 import 'package:flutter_tutorials/flutter_examples/drawer_example_flutter.dart/drwarer_naviagtion_example_flutter.dart';
@@ -89,6 +92,6 @@ class MyApp extends StatelessWidget {
      MaterialApp(
       title: 'Flutter tutorial',
       theme:ThemeData.dark(),
-      home:     GestureDetectorSnackbarExample());
+      home:     LoveindianMatcherApp());
   }
 }
