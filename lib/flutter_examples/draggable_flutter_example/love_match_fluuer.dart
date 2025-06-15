@@ -56,9 +56,9 @@ class _LoveMatcherAppState extends State<LoveMatcherApp>
         suffixes[rand.nextInt(suffixes.length)];
 
     if (gender == "Male" && name.endsWith('a')) {
-      name = name.substring(0, name.length - 1) + 'o';
+      name = '${name.substring(0, name.length - 1)}o';
     } else if (gender == "Female" && !name.endsWith('a')) {
-      name = name + 'a';
+      name = '${name}a';
     }
 
     return name;
@@ -93,9 +93,9 @@ class _LoveMatcherAppState extends State<LoveMatcherApp>
 
   Widget buildUsernameField() {
     return DragTarget<String>(
-      onAccept: (data) {
+      onAcceptWithDetails: (data) {
         setState(() {
-          username += data;
+          //username += data;
         });
       },
       builder: (context, accepted, rejected) {
@@ -325,9 +325,9 @@ class _LoveindianMatcherAppState extends State<LoveindianMatcherApp>
 
   Widget buildUsernameField() {
     return DragTarget<String>(
-      onAccept: (data) {
+      onAcceptWithDetails: (data) {
         setState(() {
-          username += data;
+          //username += data;
         });
       },
       builder: (context, accepted, rejected) {

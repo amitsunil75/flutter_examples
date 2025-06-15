@@ -44,9 +44,9 @@ class _DraggableGameExampleState extends State<DraggableGameExample> {
 
           // Drop Zone
           DragTarget<int>(
-            onAccept: (data) {
+            onAcceptWithDetails: (data) {
               setState(() {
-                score += data;
+                //score += data;
               });
             },
             builder: (context, accepted, rejected) {

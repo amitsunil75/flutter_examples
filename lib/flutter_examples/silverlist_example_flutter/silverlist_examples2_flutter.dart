@@ -15,6 +15,8 @@ class _SilverlistExamples2FlutterState
     return Scaffold(
       body: ListView.builder(
        itemBuilder: (context, index){
+         return null;
+       
         
 
        },

@@ -13,6 +13,7 @@ class HeadingItem implements ListItem {
     return Text(heading, style: Theme.of(context).textTheme.headlineSmall);
   }
 
+  @override
   Widget buildSubTitle(BuildContext context) {
     return SizedBox.shrink();
   }
@@ -22,6 +23,8 @@ class MessageItem implements ListItem {
   final String sender;
   final String body;
   MessageItem(this.body, this.sender);
+  @override
   Widget buildTitle(BuildContext context) => Text(sender);
+  @override
   Widget buildSubTitle(BuildContext context) => Text(body);
 }

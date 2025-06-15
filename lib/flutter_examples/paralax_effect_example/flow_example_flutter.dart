@@ -52,7 +52,6 @@ class _FlutterFlowExampleState extends State<FlutterFlowExample>
       padding: EdgeInsetsGeometry.symmetric(vertical: 8.0),
       child: RawMaterialButton(
         fillColor: lastTapped == icon ? Colors.amber[700] : Colors.blue,
-        child: Icon(icon,color: Colors.white,size: 45,),
         splashColor: Colors.amber[100],
         shape: CircleBorder(),
         constraints: BoxConstraints.tight(Size(buttonDiameter, buttonDiameter)),
@@ -61,14 +60,16 @@ class _FlutterFlowExampleState extends State<FlutterFlowExample>
         _animationController.status == AnimationStatus.completed
             ? _animationController.reverse()
             : _animationController.forward();
-       if(icon!=Icons.menu)     
-        Navigator.push(
+       if(icon!=Icons.menu) {
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => DetailPage(icon: icon),
           ),
         );
+       }
         },
+        child: Icon(icon,color: Colors.white,size: 45,),
       ),
     );
   }
@@ -90,10 +91,12 @@ class _FlutterFlowExampleState extends State<FlutterFlowExample>
 class FlowMenuDelegate extends FlowDelegate {
   final Animation<double> animationController;
    FlowMenuDelegate({required this.animationController}):super(repaint:animationController);
-   bool shouldRepaint(FlowMenuDelegate oldDelegate){
+   @override
+  bool shouldRepaint(FlowMenuDelegate oldDelegate){
     return animationController !=oldDelegate.animationController;
    }
- void paintChildren(FlowPaintingContext context){
+ @override
+  void paintChildren(FlowPaintingContext context){
   double dx=0.0;
   for(int i=0;i<context.childCount;i++){
     dx=context.getChildSize(i)!.width*i;

@@ -12,7 +12,7 @@ class _BottomNavigationBarExample3State
     extends State<BottomNavigationBarExample3> {
   int selectedAIndex = 0;
   final ScrollController _scrollController = ScrollController();
-  listViewBody() {
+  ListView listViewBody() {
     return ListView.separated(
       controller: _scrollController,
       itemBuilder: (context, int index) {
@@ -23,7 +23,7 @@ class _BottomNavigationBarExample3State
     );
   }
 
-  showModal(BuildContext context) {
+  void showModal(BuildContext context) {
     showDialog(
       context: context,
       builder:

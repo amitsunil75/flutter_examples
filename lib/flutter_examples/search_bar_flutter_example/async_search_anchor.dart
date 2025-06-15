@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AsyncSearchAnchor extends StatefulWidget {
-  const AsyncSearchAnchor();
+  const AsyncSearchAnchor({super.key});
 
   @override
   State<AsyncSearchAnchor> createState() => AsyncSearchAnchorState();

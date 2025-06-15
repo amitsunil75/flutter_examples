@@ -41,13 +41,6 @@ class _DraggableFlutterExampleState extends State<DraggableFlutterExample> {
                 alignment: Alignment.center,
                 child: const Text('Dragging...'),
               ),
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.amberAccent,
-                alignment: Alignment.center,
-                child: const Text('Draggable'),
-              ),
               feedback: Material( // Use Material for proper rendering of feedback
                 color: Colors.transparent,
                 child: Container(
@@ -58,11 +51,18 @@ class _DraggableFlutterExampleState extends State<DraggableFlutterExample> {
                   child: const Icon(Icons.directions_bike, color: Colors.white),
                 ),
               ),
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.amberAccent,
+                alignment: Alignment.center,
+                child: const Text('Draggable'),
+              ),
             ),
             DragTarget<int>(
-              onAccept: (data) {
+              onAcceptWithDetails: (data) {
                 setState(() {
-                  acceptableData += data;
+                 // acceptableData += data;
                 });
               },
               builder: (

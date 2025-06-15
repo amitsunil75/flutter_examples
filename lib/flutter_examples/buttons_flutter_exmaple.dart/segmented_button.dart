@@ -77,7 +77,7 @@ class _ButtonSegmentedExamplefluterState extends State<ButtonSegmentedExampleflu
               },
               showSelectedIcon: false,
               style: ButtonStyle(
-                side: MaterialStateProperty.all(BorderSide(color: Colors.deepPurple)),
+                side: WidgetStateProperty.all(BorderSide(color: Colors.deepPurple)),
               ),
             ),
             const SizedBox(height: 20),
