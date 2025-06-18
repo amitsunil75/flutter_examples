@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 
-/// The top-level widget of the app.
 class CutCopyPasteExampleFlutter extends StatelessWidget {
   const CutCopyPasteExampleFlutter({super.key});
 
@@ -10,21 +9,21 @@ class CutCopyPasteExampleFlutter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shortcuts(
-      shortcuts: <LogicalKeySet, Intent>{
-        LogicalKeySet(LogicalKeyboardKey.escape): const ClearIntent(),
-        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyC): const CopyIntent(),
-        LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyA): const SelectAllIntent(),
-      },
-      child: const CopyableTextField(title: title),
-    );
+    return  Shortcuts(
+        shortcuts: <LogicalKeySet, Intent>{
+          LogicalKeySet(LogicalKeyboardKey.escape): const ClearIntent(),
+          LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyC):
+              const CopyIntent(),
+          LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyA):
+              const SelectAllIntent(),
+        },
+        child: const CopyableTextField(title: title),
+      );
   }
 }
 
-/// A widget that contains a TextField and copy/select buttons.
 class CopyableTextField extends StatefulWidget {
   const CopyableTextField({super.key, required this.title});
-
   final String title;
 
   @override
@@ -52,55 +51,50 @@ class _CopyableTextFieldState extends State<CopyableTextField> {
       child: Scaffold(
         appBar: AppBar(title: Text(widget.title)),
         body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Row(
-              children: <Widget>[
-                const Spacer(),
-                Expanded(
-                  flex: 3,
-                  child: TextField(
-                    controller: controller,
-                    maxLines: 3,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Type something...',
-                    ),
-                  ),
+          child: Row(
+            children: <Widget>[
+              const Spacer(),
+              Expanded(
+                child: TextField(
+                  controller: controller,
+                  decoration: const InputDecoration(hintText: 'Enter text'),
                 ),
-                const SizedBox(width: 16),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.copy),
-                      tooltip: 'Copy selected text',
-                      onPressed: Actions.handler<CopyIntent>(
-                        context,
-                        const CopyIntent(),
-                      ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.select_all),
-                      tooltip: 'Select all text',
-                      onPressed: Actions.handler<SelectAllIntent>(
-                        context,
-                        const SelectAllIntent(),
-                      ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.clear),
-                      tooltip: 'Clear all text',
-                      onPressed: Actions.handler<ClearIntent>(
-                        context,
-                        const ClearIntent(),
-                      ),
-                    ),
-                  ],
-                ),
-                const Spacer(),
-              ],
-            ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.copy),
+                tooltip: 'Copy selected text',
+                onPressed: () {
+                  final handler = Actions.handler<CopyIntent>(
+                    context,
+                    CopyIntent(context: context),
+                  );
+                  if (handler != null) handler();
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.select_all),
+                tooltip: 'Select all text',
+                onPressed: () {
+                  final handler = Actions.handler<SelectAllIntent>(
+                    context,
+                    const SelectAllIntent(),
+                  );
+                  if (handler != null) handler();
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.clear),
+                tooltip: 'Clear text',
+                onPressed: () {
+                  final handler = Actions.handler<ClearIntent>(
+                    context,
+                    const ClearIntent(),
+                  );
+                  if (handler != null) handler();
+                },
+              ),
+              const Spacer(),
+            ],
           ),
         ),
       ),
@@ -108,19 +102,8 @@ class _CopyableTextFieldState extends State<CopyableTextField> {
   }
 }
 
-/// ShortcutManager that logs shortcut handling.
-class LoggingShortcutManager extends ShortcutManager {
-  @override
-  KeyEventResult handleKeypress(BuildContext context, KeyEvent event) {
-    final KeyEventResult result = super.handleKeypress(context, event);
-    if (result == KeyEventResult.handled) {
-      debugPrint('Handled shortcut $event in $context');
-    }
-    return result;
-  }
-}
+// -- Dispatcher and Shortcuts Logging --
 
-/// ActionDispatcher that logs which actions are invoked.
 class LoggingActionDispatcher extends ActionDispatcher {
   @override
   Object? invokeAction(
@@ -128,17 +111,28 @@ class LoggingActionDispatcher extends ActionDispatcher {
     covariant Intent intent, [
     BuildContext? context,
   ]) {
-    debugPrint('Action invoked: $action($intent) from $context');
+    print('Action invoked: $action($intent) from $context');
     return super.invokeAction(action, intent, context);
   }
 }
 
-/// Intent to clear the text field.
+// -- Intents --
+
 class ClearIntent extends Intent {
   const ClearIntent();
 }
 
-/// Action to clear the controller text.
+class CopyIntent extends Intent {
+  const CopyIntent({this.context});
+  final BuildContext? context;
+}
+
+class SelectAllIntent extends Intent {
+  const SelectAllIntent();
+}
+
+// -- Actions --
+
 class ClearAction extends Action<ClearIntent> {
   ClearAction(this.controller);
   final TextEditingController controller;
@@ -150,35 +144,42 @@ class ClearAction extends Action<ClearIntent> {
   }
 }
 
-/// Intent to copy selected text.
-class CopyIntent extends Intent {
-  const CopyIntent();
-}
-
-/// Action to copy selected text to clipboard.
 class CopyAction extends Action<CopyIntent> {
   CopyAction(this.controller);
   final TextEditingController controller;
 
   @override
   Object? invoke(covariant CopyIntent intent) {
-    if (controller.selection.isValid) {
+    if (controller.selection.isValid &&
+        controller.selection.start >= 0 &&
+        controller.selection.end <= controller.text.length &&
+        controller.selection.start != controller.selection.end) {
       final selectedText = controller.text.substring(
         controller.selection.start,
         controller.selection.end,
       );
       Clipboard.setData(ClipboardData(text: selectedText));
+
+      // Show snackbar
+      if (intent.context != null) {
+        ScaffoldMessenger.of(intent.context!).showSnackBar(
+          SnackBar(content: Text('Copied: "$selectedText"')),
+        );
+      }
+
+      // Optional: Clear text after copying
+      // controller.clear();
+    } else {
+      if (intent.context != null) {
+        ScaffoldMessenger.of(intent.context!).showSnackBar(
+          const SnackBar(content: Text('Please select some text to copy')),
+        );
+      }
     }
     return null;
   }
 }
 
-/// Intent to select all text.
-class SelectAllIntent extends Intent {
-  const SelectAllIntent();
-}
-
-/// Action to select all text.
 class SelectAllAction extends Action<SelectAllIntent> {
   SelectAllAction(this.controller);
   final TextEditingController controller;
