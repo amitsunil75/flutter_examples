@@ -43,7 +43,7 @@ class _ListenToChangesTextFieldState extends State<ListenToChangesTextField> {
               print('Text changed to: ${value.length}');
             },
           ),
-          ElevatedButton(onPressed: () => null, child: Text('submit')),
+          ElevatedButton(onPressed: () {}, child: Text('submit')),
         ],
       ),
     );

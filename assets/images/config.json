@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Deposit Sbi",
+    "icon": "account_balance_wallet",
+    "color": "#4CAF50"
+  },
+  {
+    "title": "Withdraw",
+    "icon": "money_off",
+    "color": "#FF5722"
+  },
+  {
+    "title": "Passbook",
+    "icon": "book",
+    "color": "#3F51B5"
+  },
+  {
+    "title": "ATM BOMBAY",
+    "icon": "local_atm",
+    "color": "#9C27B0"
+  }
+]

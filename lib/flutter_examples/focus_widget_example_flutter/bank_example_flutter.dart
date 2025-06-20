@@ -377,7 +377,7 @@ class _BankHomePageState extends State<BankHomePage> {
   final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
 
   // Track button press states for animation triggers
-  List<bool> _pressed = [false, false, false, false];
+  final List<bool> _pressed = [false, false, false, false];
 
   void _triggerAnimation(int index) {
     setState(() {
