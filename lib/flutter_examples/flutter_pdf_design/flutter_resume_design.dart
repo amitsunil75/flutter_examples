@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class ResumePreviewPage extends StatelessWidget {
   const ResumePreviewPage({super.key});
 
@@ -131,7 +131,8 @@ Future<pw.Document> generateResumePdf() async {
           children: [
             // Header Section
             pw.Text('AMIT SUNIL',
-                style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold)),
+                style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold),
+                ),
             pw.Text('FLUTTER DEVELOPER',
                 style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.normal)),
             pw.SizedBox(height: 10),
