@@ -1,5 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tutorials/firebase_options.dart';
+import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_example/routes/routes_configuration.dart';
 import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_example/services/application_state.dart';
 import 'package:flutter_tutorials/flutter_examples/fllutter_bloc_example/bloc_from_api/bloc/user_bloc.dart' show UserBloc, FetchUsers;
 import 'package:flutter_tutorials/flutter_examples/fllutter_bloc_example/bloc_from_api/models/user_repository.dart';
@@ -9,12 +12,13 @@ import 'package:flutter_tutorials/flutter_examples/focus_widget_example_flutter/
 import 'package:provider/provider.dart';
 
 import 'flutter_examples/fllutter_bloc_example/flutter_bloc_state_managemant.dart';
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+ await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ChangeNotifierProvider(
       create: (context) => ApplicationState(),
-      child: const MyApp(),
+      child: const MyApplication(),
     ),
   );
 }
@@ -31,7 +35,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       themeAnimationCurve: Curves.bounceOut,
-      home:ResumePreviewPage()
+     //routerConfig:_router ,
+     // home:ApplicationState()
       // home: RepositoryProvider(
       //   create: (_) => UserRepository(),
       //   child: BlocProvider(

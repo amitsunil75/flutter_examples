@@ -11,7 +11,10 @@ class LargerScreenNavigationRail extends StatefulWidget {
 class _LargerScreenNavigationRailState
     extends State<LargerScreenNavigationRail> {
   int _selectedIndex = 0;
- c
+  NavigationRailLabelType labelType = NavigationRailLabelType.none;
+  double groupAlignment = 0.0;
+  bool showLeaading = true;
+  bool showTrailing = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
