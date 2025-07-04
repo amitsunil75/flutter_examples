@@ -76,67 +76,68 @@ import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_exampl
 
 // Would you like a Flutter-specific example to illustrate both?
 
+// A stateful widget to manage the guestbook input and display
 class GuestBook extends StatefulWidget {
   const GuestBook({
     super.key,
-    required this.addMessage,
-    required this.messages,
+    required this.addMessage, // Function to add a message
+    required this.messages,   // List of existing messages
   });
-  final FutureOr<void> Function(String message) addMessage;
-  final List<GuestBookMessage> messages;
+
+  final FutureOr<void> Function(String message) addMessage; // Callback to add message to backend
+  final List<GuestBookMessage> messages; // Messages to show
 
   @override
-  State<GuestBook> createState() => _GuestBookState();
+  State<GuestBook> createState() => _GuestBookState(); // Creates associated state object
 }
 
 class _GuestBookState extends State<GuestBook> {
-  final _formKey = GlobalKey<FormState>(debugLabel: '_GuestBookState');
-  final TextEditingController _controller = TextEditingController();
+  final _formKey = GlobalKey<FormState>(debugLabel: '_GuestBookState'); // Used to validate form
+  final TextEditingController _controller = TextEditingController();    // Controls text input
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Column( // Main vertical layout
+      crossAxisAlignment: CrossAxisAlignment.start, // Align items to the left
       children: [
-        Padding(
+        Padding( // Add space around form
           padding: EdgeInsetsGeometry.all(14),
-          child: Form(
+          child: Form( // Wraps input in a form for validation
             key: _formKey,
-            child: Row(
+            child: Row( // Horizontal layout for text field + button
               children: [
-                SizedBox(
+                SizedBox( // Fixed width input field
                   width: 800,
                   child: TextFormField(
-                    style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold), // Input text style
                     expands: false,
-                    
                     selectionHeightStyle: BoxHeightStyle.tight,
-                    controller: _controller,
-                    validator: (value) {
+                    controller: _controller, // Connects controller to field
+                    validator: (value) { // Checks if input is empty
                       if (value == null || value.isEmpty) {
                         return 'Invalid input';
                       }
                       return null;
                     },
-                    decoration:InputDecoration(
-                      //constraints: BoxConstraints(minWidth: 20,maxWidth: 40,minHeight: 40,maxHeight: 50),
-                      contentPadding: EdgeInsetsGeometry.only(left: 22,right:20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsetsGeometry.only(left: 22, right: 20), // Inner spacing
                       filled: true,
+                      fillColor: Colors.black,
+                      focusColor: Colors.black,
+                      hoverColor: Colors.black,
                       isCollapsed: false,
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                       floatingLabelAlignment: FloatingLabelAlignment.center,
-                      fillColor: Colors.black,
-                      focusColor: Colors.black,
-                      hoverColor:  Colors.black,
-                      labelStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                      labelText: 'Send Message',
-                     border: OutlineInputBorder(
-                       borderRadius: BorderRadius.circular(20)
-                     ) 
+                      labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      labelText: 'Send Message', // Placeholder text
+                      border: OutlineInputBorder( // Rounded border
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(width: 10,),
-                StyledButton(
+                SizedBox(width: 10), // Space between input and button
+                StyledButton( // Custom send button
                   child: Row(
                     children: [
                       Icon(Icons.send),
@@ -146,30 +147,41 @@ class _GuestBookState extends State<GuestBook> {
                   ),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      await widget.addMessage(_controller.text);
-                      _controller.clear();
+                      await widget.addMessage(_controller.text); // Call parent method
+                      _controller.clear(); // Clear input
                     }
                   },
                 ),
-               
               ],
             ),
           ),
         ),
-         SizedBox(height: 10),
-                for (var message in widget.messages)
-                  Paragraph(
-                    'Name :${message.name},Message:${message.message} ',
-                  ),
-                SizedBox(height: 10),
+        SizedBox(height: 10), // Space before messages
+
+        // Display messages from list
+        for (var message in widget.messages)
+          Paragraph(
+            'Name :${message.name}, Message: ${message.message}',
+          ),
+
+        SizedBox(height: 10),
       ],
     );
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
-    _controller.dispose();
+    _controller.dispose(); // Dispose controller when widget is destroyed
     super.dispose();
   }
 }
+// 🧠 What Widgets Do (in short)
+// Widget	Purpose
+// StatefulWidget	Widget that can rebuild when its state changes.
+// TextEditingController	Controls and clears the input text.
+// Form + TextFormField	Input field with validation.
+// GlobalKey<FormState>	Used to validate the form.
+// StyledButton	Custom-styled button (likely your own or imported).
+// Column / Row	Layout widgets for vertical and horizontal alignment.
+// SizedBox	Adds fixed spacing or dimensions.
+// Paragraph	Custom widget to show messages (likely wraps Text).
