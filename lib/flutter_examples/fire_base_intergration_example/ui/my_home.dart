@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_example/services/application_state.dart';
+import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_example/ui/guest_book.dart';
+import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_example/ui/yes_no.dart';
 import 'package:flutter_tutorials/flutter_examples/fire_base_intergration_example/widgets/my_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart'
@@ -21,14 +23,21 @@ class _MyHomeWidgetState extends State<MyHomeWidget> {
       backgroundColor: const Color.fromARGB(255, 144, 236, 24),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('FireBase MeetUp',style: TextStyle(color: Colors.white),)),
+        title: Text('FireBase MeetUp', style: TextStyle(color: Colors.white)),
+      ),
       body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
               borderRadius: BorderRadiusGeometry.circular(20),
-              child: Image.asset('assets/images/codelab.jpg',height: 420,width: 400,fit: BoxFit.cover,)),
+              child: Image.asset(
+                'assets/images/codelab.jpg',
+                height: 420,
+                width: 400,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           const SizedBox(height: 8),
           IconAndDetail(icon: Icons.calendar_today, title: '2025-06-20'),
@@ -53,6 +62,26 @@ class _MyHomeWidgetState extends State<MyHomeWidget> {
           const Header("What we'll be doing"),
           const Paragraph(
             'Join us for a day full of Firebase Workshops and Pizza!',
+          ),
+          Consumer<ApplicationState>(
+            builder: (context, value, child) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  switch(value.attendees){
+                   1=>const Paragraph(' 1 person going'),
+                  >= 2=> Paragraph('${value.attendees}people going'),
+                   _=>const Paragraph('No one going')
+                  },
+                if(value.isLoggedIn)...[
+                  YesNoPage(state: value.attending, onSelection: (attending)=>value.attending=attending),
+                  SizedBox(height: 8,),
+                  const Header('Discussion'),
+                  GuestBook(addMessage: (message)=>value.addMessageGuestBook(message), messages:value.guestBookMessage )
+                ]
+
+            ],);
+            },
           ),
         ],
       ),
